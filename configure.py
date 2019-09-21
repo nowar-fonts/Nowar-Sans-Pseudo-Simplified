@@ -19,47 +19,6 @@ class Config:
 	fontPackWeight = [ 300, 400, 500, 700 ]
 	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "OSF", "GB", "RP" ]
 
-	fontProviderWeight = [ 300, 400, 500, 700 ]
-	fontProviderWidth = [ 3, 5, 7 ]
-	fontProviderInstance = {
-		# seperate western to 2 parts, avoid sed argument strips
-		"western1": [ Namespace(
-			weight = w,
-			width = wd,
-			family = "UI",
-			region = r,
-			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "CN", "TW", "HK", "JP" ]) ],
-		"western2": [ Namespace(
-			weight = w,
-			width = wd,
-			family = "UI",
-			region = r,
-			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "CL", "OSF" ]) ],
-		"zhCN": [ Namespace(
-			weight = w,
-			width = wd,
-			family = "Sans",
-			region = r,
-			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "CN", "CL" ]) ],
-		"zhTW": [ Namespace(
-			weight = w,
-			width = wd,
-			family = "Sans",
-			region = r,
-			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "TW", "HK", "CL" ]) ],
-		"koKR": [ Namespace(
-			weight = w,
-			width = wd,
-			family = "Sans",
-			region = r,
-			encoding = "unspec"
-		) for w, wd, r in product(fontProviderWeight, fontProviderWidth, [ "KR" ]) ],
-	}
-
 config = Config()
 
 weightMap = {
@@ -446,7 +405,7 @@ if __name__ == "__main__":
 		},
 		"rule": {
 			"all": {
-				"depend": [ "SharedMedia-NowarSans-${VERSION}.7z" ],
+				"depend": [],
 			},
 			"clean": {
 				"command": [
@@ -456,82 +415,6 @@ if __name__ == "__main__":
 				]
 			}
 		},
-	}
-
-	unique = lambda l: reduce(lambda l, x: l + [ x ] if x not in l else l, l, [])
-
-	# SharedMedia font provider
-	makefile["rule"]["SharedMedia-NowarSans-${VERSION}.7z"] = {
-		"depend": [ "nowar/{}.otf".format(GenerateFilename(p)) for p in sum(config.fontProviderInstance.values(), []) ],
-		"command": [
-			# copy inferface directory
-			"cp -r libsm NowarSansTypeface",
-			"cp LICENSE.txt NowarSansTypeface/",
-			"mkdir -p NowarSansTypeface/Fonts/",
-			# replace dummy strings
-			"sed -i 's/__REPLACE_IN_BUILD__VERSION__/${VERSION}/' NowarSansTypeface/NowarSansTypeface.toc",
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN1__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
-				"\\n".join(
-					[
-						# backslashes will be escaped twice by `make` and `sed`
-						r'NowarSansTypeface:Register("font", "{}", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\{}.otf]], western + ruRU)'.format(
-							GenerateFriendlyFamily(p)[0x0409],
-							GenerateFilename(p).replace("unspec-", "")
-						) for p in config.fontProviderInstance["western1"]
-					]
-				)
-			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{{s/__REPLACE_IN_BUILD__REGISTER_WESTERN2__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
-				"\\n".join(
-					[
-						r'NowarSansTypeface:Register("font", "{}", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\{}.otf]], western + ruRU)'.format(
-							GenerateFriendlyFamily(p)[0x0409],
-							GenerateFilename(p).replace("unspec-", "")
-						) for p in config.fontProviderInstance["western2"]
-					]
-				)
-			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHCN__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
-				"\\n".join(
-					[
-						r'NowarSansTypeface:Register("font", "{}", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\{}.otf]], zhCN)'.format(
-							GenerateFriendlyFamily(p)[0x0804],
-							GenerateFilename(p).replace("unspec-", "")
-						) for p in config.fontProviderInstance["zhCN"]
-					]
-				)
-			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{{s/__REPLACE_IN_BUILD__REGISTER_ZHTW__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
-				"\\n".join(
-					[
-						r'NowarSansTypeface:Register("font", "{}", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\{}.otf]], zhTW)'.format(
-							GenerateFriendlyFamily(p)[0x0404],
-							GenerateFilename(p).replace("unspec-", "")
-						) for p in config.fontProviderInstance["zhTW"]
-					]
-				)
-			),
-			"sed -i '/__REPLACE_IN_BUILD__REGISTER_KOKR__/{{s/__REPLACE_IN_BUILD__REGISTER_KOKR__/{}/}}' NowarSansTypeface/NowarSansTypeface.lua".format(
-				"\\n".join(
-					[
-						r'NowarSansTypeface:Register("font", "{}", [[Interface\\\\Addons\\\\NowarSansTypeface\\\\Fonts\\\\{}.otf]], koKR)'.format(
-							GenerateFriendlyFamily(p)[0x0412],
-							GenerateFilename(p).replace("unspec-", "")
-						) for p in config.fontProviderInstance["koKR"]
-					]
-				)
-			),
-			# copy font files
-			"for file in $^; do cp $$file NowarSansTypeface/Fonts/$${file#nowar/*-}; done",
-			# pack with 7z, group them by weight to generate smaller file in less time
-			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ NowarSansTypeface/ -x!NowarSansTypeface/Fonts/\\*.otf",
-		] + [
-			"7z a -t7z -m0=LZMA:d=512m:fb=273 -ms $@ " + " ".join([
-				"NowarSansTypeface/Fonts/{}.otf".format(GenerateFilename(p).replace("unspec-", ""))
-					for p in unique(sum(config.fontProviderInstance.values(), []))
-					if p.weight == w
-			]) for w in config.fontProviderWeight
-		]
 	}
 
 	# font pack for each regional variant and weight
