@@ -8,6 +8,7 @@ from fontlib.pkana import ApplyPalt
 from fontlib.transform import Transform, ChangeAdvanceWidth
 from fontlib.gsub import GetGsubFlat
 from fontlib.gsub import ApplyGsubSingle
+from opencc_t2s import OpenCC_T2S
 import configure
 
 langIdList = [ 0x0409, 0x0804, 0x0404, 0x0C04 ]
@@ -209,6 +210,16 @@ if __name__ == '__main__':
 		# pre-apply `palt` in UI family
 		if "UI" in param.family:
 			ApplyPalt(asianFont)
+
+		# pseudo-SC, remap characters
+		if param.pseudosc:
+			cmap = asianFont['cmap']
+
+			for trad, simp in OpenCC_T2S.items():
+				usimp = str(ord(simp))
+				if usimp in cmap:
+					utrad = str(ord(trad))
+					cmap[utrad] = cmap[usimp]
 
 		MergeBelow(baseFont, asianFont)
 
