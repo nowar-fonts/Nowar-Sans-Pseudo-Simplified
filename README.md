@@ -1,88 +1,67 @@
-**English** [简体中文](README-Hans.md) [繁體中文](README-Hant.md)
+# 有爱黑体（《魔兽世界》字体包）
 
-# Nowar Sans for _World of Warcraft_
-
-This is Nowar Sans, font packs for _World of Warcraft_ and _WoW Classic_ that support all client languages. Nowar Sans is based on [Noto Sans](https://github.com/googlei18n/noto-fonts) and [Source Han Sans](https://github.com/adobe-fonts/source-han-sans).
+有爱黑体是《魔兽世界》和《魔兽世界：经典怀旧服》字体包，支持所有语言。有爱黑体是 [Noto Sans](https://github.com/googlei18n/noto-fonts) 和[思源黑体](https://github.com/adobe-fonts/source-han-sans)的合并字体。
 
 > Make Love, Not Warcraft.<br>
 > 要有爱，不要魔兽争霸。<br>
 > 要愛，不要魔獸。
 
-![Nowar Sans](poster/heading.png)
+![有爱黑体](poster/heading.png)
 
-![Multilingual support](poster/multilingual.png)
+![多语言支持](poster/multilingual.png)
 
-## Download the Fonts
+## 下载指南
 
-[Latest release at GitHub](https://github.com/nowar-fonts/Nowar-Sans/releases)
+[GitHub 上的最新版](https://github.com/nowar-fonts/Nowar-Sans/releases)
 
-Mirrors: [Latest release at Gitee](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
+镜像：[Gitee 上的最新版](https://gitee.com/nowar-fonts/Nowar-Sans/releases)
 
-Nowar Sans is shipped in 4 weights and 9 regional variants.
+有爱黑体有 4 种字重和 9 种地区变体。
 
-### Weights
+### 字重
 
-* 300: Light
-* 400: Regular
-* 500: Medium
-* 700: Bold
-* [Morpheus (European display font) may be bolder or lighter.]
+* 300：细体
+* 400：常规
+* 500：中等
+* 700：粗体
+* ［Morpheus（西文标题字体）采用了更粗或更细的字重，以示强调。］
 
-### Regional Variants
+### 地区变体
 
-CN, TW, HK, JP and KR are “standard variants”, which have full character set support with regional Chinese character orthographies.
+CN、TW、HK、JP、KR 是 “标准变体”，支持完整的字符集，并遵循各地区的字形标准。
 
-|    | European            | 简体中文       | 繁體中文  | 한국어   |
-| -- | ------------------- | -------------- | --------- | -------- |
-| CN | Mainland China (UI) | Mainland China | Taiwan    | S. Korea |
-| TW | Taiwan (UI)         | Mainland China | Taiwan    | S. Korea |
-| HK | Hong Kong (UI)      | Mainland China | Hong Kong | S. Korea |
-| JP | Japan (UI)          | Mainland China | Taiwan    | S. Korea |
-| KR | S. Korea (UI)       | Mainland China | Taiwan    | S. Korea |
+|    | 西文              | 简体中文     | 繁体中文 | 韩国语   |
+| -- | ----------------- | ------------ | -------- | -------- |
+| CN | 中国大陆字形（UI）| 中国大陆字形 | 台湾字形 | 韩国字形 |
+| TW | 台湾字形（UI）    | 中国大陆字形 | 台湾字形 | 韩国字形 |
+| HK | 香港字形（UI）    | 中国大陆字形 | 香港字形 | 韩国字形 |
+| JP | 日本字形（UI）    | 中国大陆字形 | 台湾字形 | 韩国字形 |
+| KR | 韩国字形（UI）    | 中国大陆字形 | 台湾字形 | 韩国字形 |
 
-CL and OSF are “classical variants”, which have full character set support with classical Chinese character orthography (aka Kāngxī Dictionary forms).
+CL、OSF 是 “传统变体”，支持完整的字符集，采用传统印刷字形（即康熙字形）。
 
-|     | European                        | East Asian |
-| --- | ------------------------------- | ---------- |
-| CL  | Classical (UI)                  | Classical  |
-| OSF | Classical (UI, Oldstyle Figure) | Classical  |
+|     | 西文                      | 东亚语言 |
+| --- | ------------------------- | -------- |
+| CL  | 传统字形（UI）            | 传统字形 |
+| OSF | 传统字形（UI，不齐线数字）| 传统字形 |
 
-GB is a variant that supports a superset of Chinese national standard GB 18030-2000. The GB distributions aim at smaller size by removing Hangul support.
+GB 变体完全覆盖 GB 18030-2000 标准，移除了谚文支持，文件大小得以大幅缩减。
 
-|    | European            | 中文           | 한국어 |
-| -- | ------------------- | -------------- | ------ |
-| GB | Mainland China (UI) | Mainland China | N/A    |
+|    | 西文              | 中文         | 韩国语 |
+| -- | ----------------- | ------------ | ------ |
+| GB | 中国大陆字形（UI）| 中国大陆字形 | 不可用 |
 
-RP is a special offer for Chinese RP realms. The RP distributions aim at unified experience for roleplaying players by mapping `丶` to the same glyph as `·`, allowing character names like “伊利丹丶怒风” to be shown as “伊利丹·怒风”.
+RP 变体针对中文 RP 服务器。RP 变体把 `丶` 显示为 `·`（即把 “伊利丹丶怒风” 显示为 “伊利丹·怒风”），旨在为 RP 玩家提供一致的体验。
 
-|    | European                | 中文                | 한국어 |
-| -- | ----------------------- | ------------------- | ------ |
-| RP | Mainland China (UI, RP) | Mainland China (RP) | N/A    |
+|    | 西文                  | 中文              | 韩国语 |
+| -- | --------------------- | ----------------- | ------ |
+| RP | 中国大陆字形（UI，RP）| 中国大陆字形（RP）| 不可用 |
 
-* European: English, Español (AL), Português, Deutsch, Español (EU), Français, Italiano, and Русский.
-* East Asian: 简体中文, 繁體中文, and 한국어.
-* UI: Ambiguous punctations are treated as Western; CJK puctations are half-width; Kana are proportional.
-* RP: `丶` (U+4E36) is mapped to the same glyph as `·` (U+00B7, MIDDLE DOT).
+* 西文：英语、西班牙语（拉丁美洲）、葡萄牙语、德语、西班牙语（欧洲）、法语、意大利语、俄语。
+* 东亚语言：简体中文、繁体中文、韩国语。
+* UI：中西文共用的标点视作西文标点；半角 CJK 标点；比例假名。
+* RP：`丶`（U+4E36）重映射为 `·`（U+00B7，MIDDLE DOT）。
 
-### SharedMedia Font Provider
+### SharedMedia 字体包
 
-Nowar Sans is also avialable as an addon (REALLY HUGE!), to register Nowar Sans typeface to SharedMedia.
-
-## How to Build
-
-Dependencies: basic Unix utils, [Python](https://www.python.org/), [otfcc](https://github.com/caryll/otfcc) and [7-Zip](https://www.7-zip.org/) (add to `PATH`).
-
-Note: choose 64-bit version if possible. 32-bit version may lead to out-of-memory issue.
-
-Run `configure.py` to generate Makefile. (Optional)
-```bash
-python configure.py
-```
-
-Put Source Han Sans OTF files (all families but HW) and Subset OTF files (CN only) to `shs/`, then just `make` it. 
-
-## Credit
-
-Latin, Greek and Cyrillic characters are from [Noto Sans](https://github.com/googlei18n/noto-fonts) by Google.
-
-CJK Ideographs, Kana and Hangul are from [Source Han Sans](https://github.com/adobe-fonts/source-han-sans) by Adobe.
+有爱黑体也可以以插件的形式安装（**很大！**），启用之后会向 SharedMedia 注册有爱黑体字族。
