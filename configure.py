@@ -17,7 +17,7 @@ class Config:
 	licenseUrl = "https://scripts.sil.org/OFL"
 
 	fontPackWeight = [ 300, 400, 500, 700 ]
-	fontPackRegion = [ "CN", "TW", "HK", "JP", "KR", "CL", "OSF", "GB", "RP" ]
+	fontPackRegion = [ "GBPSC" ]
 
 config = Config()
 
@@ -46,98 +46,25 @@ notoWidthMap = {
 	7: 5,
 }
 
-morpheusWeightMap = {
-	300: 200,
-	400: 500,
-	500: 600,
-	700: 800,
-}
-
 # define font pack orthographies for diffrent WoW language
 # Latn -- Chinese characters in European languages, must be defined.
 # Hans -- 简体中文; if set to `None`, the font pack will not override 简体中文 font.
 # Hans -- 繁體中文, can be `None`.
 # ko -- 漢字 in 한국어, can be `None`.
 regionalVariant = {
-	"CN": {
-		"Latn": "CN",
-		"Hans": "CN",
-		"Hant": "TW",
-		"ko": "KR",
-	},
-	"TW": {
-		"Latn": "TW",
-		"Hans": "CN",
-		"Hant": "TW",
-		"ko": "KR",
-	},
-	"HK": {
-		"Latn": "HK",
-		"Hans": "CN",
-		"Hant": "HK",
-		"ko": "KR",
-	},
-	"JP": {
-		"Latn": "JP",
-		"Hans": "CN",
-		"Hant": "TW",
-		"ko": "KR",
-	},
-	"KR": {
-		"Latn": "KR",
-		"Hans": "CN",
-		"Hant": "TW",
-		"ko": "KR",
-	},
-	"CL": {
-		"Latn": "CL",
-		"Hans": "CL",
-		"Hant": "CL",
-		"ko": "CL",
-	},
-	"OSF": {
-		"Latn": "OSF",
-		"Hans": "CL",
-		"Hant": "CL",
-		"ko": "CL",
-	},
-	"GB": {
+	"GBPSC": {
 		"Latn": "GB",
-		"Hans": "GB",
 		"Hant": "GB",
-		"ko": None,
-	},
-	"RP": {
-		"Latn": "RP",
-		"Hans": "RP",
-		"Hant": "RP",
-		"ko": None,
 	},
 }
 
 # map orthography to source file
 regionSourceMap = {
-	"CN": "SourceHanSansSC",
-	"TW": "SourceHanSansTC",
-	"HK": "SourceHanSansHC",
-	"JP": "SourceHanSans",
-	"KR": "SourceHanSansK",
-	"CL": "SourceHanSansK",
-	"OSF": "SourceHanSansK",
 	"GB": "SourceHanSansCN",
-	"RP": "SourceHanSansCN",
 }
 
 regionNameMap = {
-	"CN": "CN",
-	"TW": "TW",
-	"HK": "HK",
-	"JP": "JP",
-	"KR": "KR",
-	"CL": "Classical",
-	"OSF": "Oldstyle",
 	"GB": "GB18030",
-	"RP": "Roleplaying",
 }
 
 # set OS/2 encoding to make Windows show font icon in proper language
@@ -162,43 +89,35 @@ def GenerateFamily(p):
 			0x0804: "有爱黑体 " + regionNameMap[region],
 			0x0404: "有愛黑體 " + regionNameMap[region],
 			0x0C04: "有愛黑體 " + regionNameMap[region],
-			0x0411: "有愛角ゴシック " + regionNameMap[region],
-			0x0412: "有愛 고딕 " + regionNameMap[region],
 		},
 		"UI": lambda region: {
 			0x0409: "Nowar UI " + regionNameMap[region],
 			0x0804: "有爱黑体 UI " + regionNameMap[region],
 			0x0404: "有愛黑體 UI " + regionNameMap[region],
 			0x0C04: "有愛黑體 UI " + regionNameMap[region],
-			0x0411: "有愛角ゴシック UI " + regionNameMap[region],
-			0x0412: "有愛 고딕 UI " + regionNameMap[region],
 		},
 		"WarcraftSans": lambda region: {
 			0x0409: "Nowar Warcraft Sans " + regionNameMap[region],
 			0x0804: "有爱魔兽黑体 " + regionNameMap[region],
 			0x0404: "有愛魔獸黑體 " + regionNameMap[region],
 			0x0C04: "有愛魔獸黑體 " + regionNameMap[region],
-			0x0411: "有愛ウォークラフト角ゴシック " + regionNameMap[region],
-			0x0412: "有愛 워크래프트 고딕 " + regionNameMap[region],
 		},
 		"WarcraftUI": lambda region: {
 			0x0409: "Nowar Warcraft UI " + regionNameMap[region],
 			0x0804: "有爱魔兽黑体 UI " + regionNameMap[region],
 			0x0404: "有愛魔獸黑體 UI " + regionNameMap[region],
 			0x0C04: "有愛魔獸黑體 UI " + regionNameMap[region],
-			0x0411: "有愛ウォークラフト角ゴシック UI " + regionNameMap[region],
-			0x0412: "有愛 워크래프트 고딕 UI " + regionNameMap[region],
 		},
-		"Latin": lambda region: {
-			0x0409: "Nowar UI LCG",
-			0x0804: "Nowar UI LCG",
-			0x0404: "Nowar UI LCG",
-			0x0C04: "Nowar UI LCG",
-			0x0411: "Nowar UI LCG",
-			0x0412: "Nowar UI LCG",
-		}
 	}
-	return impl[p.family](GetRegion(p))
+	if p.pseudosc:
+		return {
+			0x0409: impl[p.family](GetRegion(p))[0x0409] + " Pseudo-SC",
+			0x0804: impl[p.family](GetRegion(p))[0x0804] + " 伪简体",
+			0x0404: impl[p.family](GetRegion(p))[0x0404] + " 偽簡體",
+			0x0C04: impl[p.family](GetRegion(p))[0x0C04] + " 偽簡體",
+		}
+	else:
+		return impl[p.family](GetRegion(p))
 
 def GenerateSubfamily(p):
 	width = widthMap[p.width]
@@ -243,7 +162,13 @@ def GenerateFilename(p):
 		"Noto": lambda region: "NotoSans",
 		"Source": lambda region: region,
 	}
-	return (p.encoding + "-" if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ] else "") + familyName[p.family](GetRegion(p)) + "-" + GenerateSubfamily(p).replace(" ", "")
+	if p.family in [ "Sans", "UI", "WarcraftSans", "WarcraftUI" ]:
+		if p.pseudosc:
+			return "{}-{}PSC-{}".format(p.encoding, familyName[p.family](GetRegion(p)), GenerateSubfamily(p).replace(" ", ""))
+		else:
+			return "{}-{}-{}".format(p.encoding, familyName[p.family](GetRegion(p)), GenerateSubfamily(p).replace(" ", ""))
+	else:
+		return "{}-{}".format(familyName[p.family](GetRegion(p)), GenerateSubfamily(p).replace(" ", ""))
 
 def ResolveDependency(p):
 	result = {
@@ -268,27 +193,14 @@ def ResolveDependency(p):
 		)
 	return result
 
-def GetMorpheus(weight):
-	return Namespace(
-		weight = morpheusWeightMap[weight],
-		width = 3,
-		family = "Latin"
-	)
-
-def GetSkurri(weight):
-	return Namespace(
-		weight = weight,
-		width = 7,
-		family = "Latin"
-	)
-
 def GetLatinFont(weight, region):
 	return Namespace(
 		weight = weight,
 		width = 7,
 		family = "UI",
-		region = region,
-		encoding = "unspec"
+		region = regionalVariant[region]["Latn"],
+		encoding = "unspec",
+		pseudosc = True,
 	)
 
 def GetLatinChatFont(weight, region):
@@ -296,35 +208,9 @@ def GetLatinChatFont(weight, region):
 		weight = weight,
 		width = 3,
 		family = "UI",
-		region = region,
-		encoding = "unspec"
-	)
-
-def GetHansFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 5,
-		family = "WarcraftSans",
-		region = regionalVariant[region]["Hans"],
-		encoding = "gbk"
-	)
-
-def GetHansCombatFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 7,
-		family = "Sans",
-		region = regionalVariant[region]["Hans"],
-		encoding = "gbk"
-	)
-
-def GetHansChatFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 3,
-		family = "Sans",
-		region = regionalVariant[region]["Hans"],
-		encoding = "gbk"
+		region = regionalVariant[region]["Latn"],
+		encoding = "unspec",
+		pseudosc = True,
 	)
 
 def GetHantFont(weight, region):
@@ -333,7 +219,8 @@ def GetHantFont(weight, region):
 		width = 5,
 		family = "WarcraftSans",
 		region = regionalVariant[region]["Hant"],
-		encoding = "big5"
+		encoding = "big5",
+		pseudosc = True,
 	)
 
 def GetHantCombatFont(weight, region):
@@ -342,7 +229,8 @@ def GetHantCombatFont(weight, region):
 		width = 7,
 		family = "Sans",
 		region = regionalVariant[region]["Hant"],
-		encoding = "big5"
+		encoding = "big5",
+		pseudosc = True,
 	)
 
 def GetHantNoteFont(weight, region):
@@ -351,7 +239,8 @@ def GetHantNoteFont(weight, region):
 		width = 5,
 		family = "Sans",
 		region = regionalVariant[region]["Hant"],
-		encoding = "big5"
+		encoding = "big5",
+		pseudosc = True,
 	)
 
 def GetHantChatFont(weight, region):
@@ -360,35 +249,8 @@ def GetHantChatFont(weight, region):
 		width = 3,
 		family = "Sans",
 		region = regionalVariant[region]["Hant"],
-		encoding = "big5"
-	)
-
-
-def GetKoreanFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 5,
-		family = "Sans",
-		region = regionalVariant[region]["ko"],
-		encoding = "korean"
-	)
-
-def GetKoreanCombatFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 7,
-		family = "Sans",
-		region = regionalVariant[region]["ko"],
-		encoding = "korean"
-	)
-
-def GetKoreanDisplayFont(weight, region):
-	return Namespace(
-		weight = weight,
-		width = 3,
-		family = "Sans",
-		region = regionalVariant[region]["ko"],
-		encoding = "korean"
+		encoding = "big5",
+		pseudosc = False,
 	)
 
 def ParamToArgument(conf):
@@ -411,7 +273,6 @@ if __name__ == "__main__":
 				"command": [
 					"-rm -rf noto/*.otd shs/*.otd nowar/*.otd",
 					"-rm -rf {}".format(" ".join([ "{}-{}/".format(r, w) for r, w in product(config.fontPackRegion, config.fontPackWeight) ])),
-					"-rm -rf NowarSansTypeface/",
 				]
 			}
 		},
@@ -425,20 +286,7 @@ if __name__ == "__main__":
 		fontlist = {
 			"ARIALN": GetLatinChatFont(w, r),
 			"FRIZQT__": GetLatinFont(w, r),
-			"MORPHEUS": GetMorpheus(w),
-			"skurri": GetSkurri(w),
-
-			"FRIZQT___CYR": GetLatinFont(w, r),
-			"MORPHEUS_CYR": GetMorpheus(w),
-			"SKURRI_CYR": GetSkurri(w),
 		}
-
-		if regionalVariant[r]["Hans"]:
-			fontlist.update({
-				"ARKai_C": GetHansCombatFont(w, r),
-				"ARKai_T": GetHansFont(w, r),
-				"ARHei": GetHansChatFont(w, r),
-			})
 
 		if regionalVariant[r]["Hant"]:
 			fontlist.update({
@@ -447,14 +295,6 @@ if __name__ == "__main__":
 				"bHEI01B": GetHantChatFont(w, r),
 				"bKAI00M": GetHantCombatFont(w, r),
 				"blei00d": GetHantFont(w, r),
-			})
-
-		if regionalVariant[r]["ko"]:
-			fontlist.update({
-				"2002": GetKoreanFont(w, r),
-				"2002B": GetKoreanFont(w, r),
-				"K_Damage": GetKoreanCombatFont(w, r),
-				"K_Pagetext": GetKoreanDisplayFont(w, r),
 			})
 
 		makefile["rule"][pack] = {
@@ -476,13 +316,14 @@ if __name__ == "__main__":
 			}
 
 	# Sans, UI
-	for f, w, wd, r in product([ "Sans", "UI" ], config.fontPackWeight, [3, 5, 7], regionNameMap.keys()):
+	for f, w, wd, r, psc in product([ "Sans", "UI" ], config.fontPackWeight, [3, 5, 7], regionNameMap.keys(), [ True, False ]):
 		param = Namespace(
 			family = f,
 			weight = w,
 			width = wd,
 			region = r,
 			encoding = "unspec",
+			pseudosc = psc,
 		)
 		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
 			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
@@ -516,6 +357,7 @@ if __name__ == "__main__":
 				width = wd,
 				region = r,
 				encoding = e,
+				pseudosc = psc,
 			)
 			makefile["rule"]["nowar/{}.otf".format(GenerateFilename(enc))] = {
 				"depend": ["nowar/{}.otd".format(GenerateFilename(enc))],
@@ -534,6 +376,7 @@ if __name__ == "__main__":
 			width = 5,
 			region = r,
 			encoding = "unspec",
+			pseudosc = True,
 		)
 		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
 			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
@@ -571,6 +414,7 @@ if __name__ == "__main__":
 				width = 5,
 				region = r,
 				encoding = e,
+				pseudosc = True,
 			)
 			makefile["rule"]["nowar/{}.otf".format(GenerateFilename(enc))] = {
 				"depend": ["nowar/{}.otd".format(GenerateFilename(enc))],
@@ -580,32 +424,6 @@ if __name__ == "__main__":
 				"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
 				"command": [ "python set-encoding.py {}".format(ParamToArgument(enc)) ]
 			}
-
-	# Latin
-	for w, wd in product(config.fontPackWeight + [ morpheusWeightMap[w] for w in config.fontPackWeight ], [3, 5, 7]):
-		param = Namespace(
-			family = "Latin",
-			weight = w,
-			width = wd,
-		)
-		makefile["rule"]["nowar/{}.otf".format(GenerateFilename(param))] = {
-			"depend": ["nowar/{}.otd".format(GenerateFilename(param))],
-			"command": [ "otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null" ]
-		}
-		dep = ResolveDependency(param)
-		makefile["rule"]["nowar/{}.otd".format(GenerateFilename(param))] = {
-			"depend": [
-				"noto/{}.otd".format(GenerateFilename(dep["Latin"])),
-			],
-			"command": [ 
-				"mkdir -p nowar/",
-				"python merge.py {}".format(ParamToArgument(param))
-			]
-		}
-		makefile["rule"]["noto/{}.otd".format(GenerateFilename(dep["Latin"]))] = {
-			"depend": [ "noto/{}.otf".format(GenerateFilename(dep["Latin"])) ],
-			"command": [ "otfccdump --ignore-hints $< -o $@" ]
-		}
 
 	# dump `makefile` dict to actual “GNU Makefile”
 	makedump = ""

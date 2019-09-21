@@ -10,7 +10,7 @@ from fontlib.gsub import GetGsubFlat
 from fontlib.gsub import ApplyGsubSingle
 import configure
 
-langIdList = [ 0x0409, 0x0804, 0x0404, 0x0C04, 0x0411, 0x0412 ]
+langIdList = [ 0x0409, 0x0804, 0x0404, 0x0C04 ]
 
 def NameFont(param, font):
 	family = configure.GenerateFamily(param)
@@ -164,11 +164,6 @@ if __name__ == '__main__':
 	baseFont['OS_2']['fsSelection']['useTypoMetrics'] = True
 	baseFont['OS_2']['usWinAscent'] = 1050
 	baseFont['OS_2']['usWinDescent'] = 300
-
-	# oldstyle figure
-	if configure.GetRegion(param) == "OSF":
-		ApplyGsubSingle('pnum', baseFont)
-		ApplyGsubSingle('onum', baseFont)
 
 	# replace numerals
 	if param.family in [ "WarcraftSans", "WarcraftUI" ]:
