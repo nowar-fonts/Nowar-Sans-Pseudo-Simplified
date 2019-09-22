@@ -17,7 +17,7 @@ class Config:
 	licenseUrl = "https://scripts.sil.org/OFL"
 
 	fontPackWeight = [ 300, 400, 500, 700 ]
-	fontPackRegion = [ "GBPSC" ]
+	fontPackRegion = [ "GBP", "GBPC" ]
 
 config = Config()
 
@@ -52,9 +52,15 @@ notoWidthMap = {
 # Hans -- 繁體中文, can be `None`.
 # ko -- 漢字 in 한국어, can be `None`.
 regionalVariant = {
-	"GBPSC": {
+	"GBP": {
 		"Latn": "GB",
 		"Hant": "GB",
+		"chat": False,
+	},
+	"GBPC": {
+		"Latn": "GB",
+		"Hant": "GB",
+		"chat": True,
 	},
 }
 
@@ -250,7 +256,7 @@ def GetHantChatFont(weight, region):
 		family = "Sans",
 		region = regionalVariant[region]["Hant"],
 		encoding = "big5",
-		pseudosc = False,
+		pseudosc = regionalVariant[region]["chat"],
 	)
 
 def ParamToArgument(conf):

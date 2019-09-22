@@ -1,99 +1,191 @@
 VERSION = 0.6.1
-all: NowarSans-GBPSC-300-${VERSION}.7z NowarSans-GBPSC-400-${VERSION}.7z NowarSans-GBPSC-500-${VERSION}.7z NowarSans-GBPSC-700-${VERSION}.7z
+all: NowarSans-GBP-300-${VERSION}.7z NowarSans-GBP-400-${VERSION}.7z NowarSans-GBP-500-${VERSION}.7z NowarSans-GBP-700-${VERSION}.7z NowarSans-GBPC-300-${VERSION}.7z NowarSans-GBPC-400-${VERSION}.7z NowarSans-GBPC-500-${VERSION}.7z NowarSans-GBPC-700-${VERSION}.7z
 clean: 
 	-rm -rf noto/*.otd shs/*.otd nowar/*.otd
-	-rm -rf GBPSC-300/ GBPSC-400/ GBPSC-500/ GBPSC-700/
-NowarSans-GBPSC-300-${VERSION}.7z: GBPSC-300/Fonts/ARIALN.ttf GBPSC-300/Fonts/FRIZQT__.ttf GBPSC-300/Fonts/arheiuhk_bd.ttf GBPSC-300/Fonts/bHEI00M.ttf GBPSC-300/Fonts/bHEI01B.ttf GBPSC-300/Fonts/bKAI00M.ttf GBPSC-300/Fonts/blei00d.ttf
-	cd GBPSC-300;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
-GBPSC-300/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedLight.otf
-	mkdir -p GBPSC-300/Fonts
+	-rm -rf GBP-300/ GBP-400/ GBP-500/ GBP-700/ GBPC-300/ GBPC-400/ GBPC-500/ GBPC-700/
+NowarSans-GBP-300-${VERSION}.7z: GBP-300/Fonts/ARIALN.ttf GBP-300/Fonts/FRIZQT__.ttf GBP-300/Fonts/arheiuhk_bd.ttf GBP-300/Fonts/bHEI00M.ttf GBP-300/Fonts/bHEI01B.ttf GBP-300/Fonts/bKAI00M.ttf GBP-300/Fonts/blei00d.ttf
+	cd GBP-300;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBP-300/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedLight.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedLight.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedLight.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedLight.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedLight.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Light.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Light.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedLight.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedLight.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedLight.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedLight.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-GBPSC-300/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Light.otf
-	mkdir -p GBPSC-300/Fonts
+GBP-300/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Light.otf
+	mkdir -p GBP-300/Fonts
 	cp $^ $@
-NowarSans-GBPSC-400-${VERSION}.7z: GBPSC-400/Fonts/ARIALN.ttf GBPSC-400/Fonts/FRIZQT__.ttf GBPSC-400/Fonts/arheiuhk_bd.ttf GBPSC-400/Fonts/bHEI00M.ttf GBPSC-400/Fonts/bHEI01B.ttf GBPSC-400/Fonts/bKAI00M.ttf GBPSC-400/Fonts/blei00d.ttf
-	cd GBPSC-400;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
-GBPSC-400/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-Condensed.otf
-	mkdir -p GBPSC-400/Fonts
+NowarSans-GBP-400-${VERSION}.7z: GBP-400/Fonts/ARIALN.ttf GBP-400/Fonts/FRIZQT__.ttf GBP-400/Fonts/arheiuhk_bd.ttf GBP-400/Fonts/bHEI00M.ttf GBP-400/Fonts/bHEI01B.ttf GBP-400/Fonts/bKAI00M.ttf GBP-400/Fonts/blei00d.ttf
+	cd GBP-400;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBP-400/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-Condensed.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-Extended.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-Extended.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-Condensed.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-Condensed.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Regular.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Regular.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-Condensed.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-Condensed.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-Extended.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-Extended.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-GBPSC-400/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Regular.otf
-	mkdir -p GBPSC-400/Fonts
+GBP-400/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Regular.otf
+	mkdir -p GBP-400/Fonts
 	cp $^ $@
-NowarSans-GBPSC-500-${VERSION}.7z: GBPSC-500/Fonts/ARIALN.ttf GBPSC-500/Fonts/FRIZQT__.ttf GBPSC-500/Fonts/arheiuhk_bd.ttf GBPSC-500/Fonts/bHEI00M.ttf GBPSC-500/Fonts/bHEI01B.ttf GBPSC-500/Fonts/bKAI00M.ttf GBPSC-500/Fonts/blei00d.ttf
-	cd GBPSC-500;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
-GBPSC-500/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedMedium.otf
-	mkdir -p GBPSC-500/Fonts
+NowarSans-GBP-500-${VERSION}.7z: GBP-500/Fonts/ARIALN.ttf GBP-500/Fonts/FRIZQT__.ttf GBP-500/Fonts/arheiuhk_bd.ttf GBP-500/Fonts/bHEI00M.ttf GBP-500/Fonts/bHEI01B.ttf GBP-500/Fonts/bKAI00M.ttf GBP-500/Fonts/blei00d.ttf
+	cd GBP-500;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBP-500/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedMedium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedMedium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedMedium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedMedium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedMedium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Medium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Medium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedMedium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedMedium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedMedium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedMedium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-GBPSC-500/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Medium.otf
-	mkdir -p GBPSC-500/Fonts
+GBP-500/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Medium.otf
+	mkdir -p GBP-500/Fonts
 	cp $^ $@
-NowarSans-GBPSC-700-${VERSION}.7z: GBPSC-700/Fonts/ARIALN.ttf GBPSC-700/Fonts/FRIZQT__.ttf GBPSC-700/Fonts/arheiuhk_bd.ttf GBPSC-700/Fonts/bHEI00M.ttf GBPSC-700/Fonts/bHEI01B.ttf GBPSC-700/Fonts/bKAI00M.ttf GBPSC-700/Fonts/blei00d.ttf
-	cd GBPSC-700;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
-GBPSC-700/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedBold.otf
-	mkdir -p GBPSC-700/Fonts
+NowarSans-GBP-700-${VERSION}.7z: GBP-700/Fonts/ARIALN.ttf GBP-700/Fonts/FRIZQT__.ttf GBP-700/Fonts/arheiuhk_bd.ttf GBP-700/Fonts/bHEI00M.ttf GBP-700/Fonts/bHEI01B.ttf GBP-700/Fonts/bKAI00M.ttf GBP-700/Fonts/blei00d.ttf
+	cd GBP-700;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBP-700/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedBold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedBold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedBold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedBold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GB-CondensedBold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Bold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Bold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedBold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GB-CondensedBold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedBold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedBold.otf
+	mkdir -p GBP-700/Fonts
 	cp $^ $@
-GBPSC-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Bold.otf
-	mkdir -p GBPSC-700/Fonts
+GBP-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Bold.otf
+	mkdir -p GBP-700/Fonts
+	cp $^ $@
+NowarSans-GBPC-300-${VERSION}.7z: GBPC-300/Fonts/ARIALN.ttf GBPC-300/Fonts/FRIZQT__.ttf GBPC-300/Fonts/arheiuhk_bd.ttf GBPC-300/Fonts/bHEI00M.ttf GBPC-300/Fonts/bHEI01B.ttf GBPC-300/Fonts/bKAI00M.ttf GBPC-300/Fonts/blei00d.ttf
+	cd GBPC-300;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBPC-300/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedLight.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedLight.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GBPSC-CondensedLight.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Light.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GBPSC-CondensedLight.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedLight.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+GBPC-300/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Light.otf
+	mkdir -p GBPC-300/Fonts
+	cp $^ $@
+NowarSans-GBPC-400-${VERSION}.7z: GBPC-400/Fonts/ARIALN.ttf GBPC-400/Fonts/FRIZQT__.ttf GBPC-400/Fonts/arheiuhk_bd.ttf GBPC-400/Fonts/bHEI00M.ttf GBPC-400/Fonts/bHEI01B.ttf GBPC-400/Fonts/bKAI00M.ttf GBPC-400/Fonts/blei00d.ttf
+	cd GBPC-400;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBPC-400/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-Condensed.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-Extended.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GBPSC-Condensed.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Regular.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GBPSC-Condensed.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-Extended.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+GBPC-400/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Regular.otf
+	mkdir -p GBPC-400/Fonts
+	cp $^ $@
+NowarSans-GBPC-500-${VERSION}.7z: GBPC-500/Fonts/ARIALN.ttf GBPC-500/Fonts/FRIZQT__.ttf GBPC-500/Fonts/arheiuhk_bd.ttf GBPC-500/Fonts/bHEI00M.ttf GBPC-500/Fonts/bHEI01B.ttf GBPC-500/Fonts/bKAI00M.ttf GBPC-500/Fonts/blei00d.ttf
+	cd GBPC-500;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBPC-500/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedMedium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedMedium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GBPSC-CondensedMedium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Medium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GBPSC-CondensedMedium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedMedium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+GBPC-500/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Medium.otf
+	mkdir -p GBPC-500/Fonts
+	cp $^ $@
+NowarSans-GBPC-700-${VERSION}.7z: GBPC-700/Fonts/ARIALN.ttf GBPC-700/Fonts/FRIZQT__.ttf GBPC-700/Fonts/arheiuhk_bd.ttf GBPC-700/Fonts/bHEI00M.ttf GBPC-700/Fonts/bHEI01B.ttf GBPC-700/Fonts/bKAI00M.ttf GBPC-700/Fonts/blei00d.ttf
+	cd GBPC-700;cp ../LICENSE.txt Fonts/LICENSE.txt;7z a -t7z -m0=LZMA:d=512m:fb=273 -ms ../$@ Fonts/
+GBPC-700/Fonts/ARIALN.ttf: nowar/unspec-NowarUI-GBPSC-CondensedBold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/FRIZQT__.ttf: nowar/unspec-NowarUI-GBPSC-ExtendedBold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/arheiuhk_bd.ttf: nowar/big5-NowarSans-GBPSC-CondensedBold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/bHEI00M.ttf: nowar/big5-NowarSans-GBPSC-Bold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/bHEI01B.ttf: nowar/big5-NowarSans-GBPSC-CondensedBold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/bKAI00M.ttf: nowar/big5-NowarSans-GBPSC-ExtendedBold.otf
+	mkdir -p GBPC-700/Fonts
+	cp $^ $@
+GBPC-700/Fonts/blei00d.ttf: nowar/big5-NowarWarcraftSans-GBPSC-Bold.otf
+	mkdir -p GBPC-700/Fonts
 	cp $^ $@
 nowar/unspec-NowarSans-GBPSC-CondensedLight.otf: nowar/unspec-NowarSans-GBPSC-CondensedLight.otd
 	otfccbuild -O3 --keep-average-char-width $< -o $@ 2>/dev/null
