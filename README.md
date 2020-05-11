@@ -1,3 +1,10 @@
+# 已归档：伪简体现在已经并入[有爱黑体](https://github.com/nowar-fonts/Nowar-Sans)
+
+* GBP → PSimp
+* GBPC → PSimpChat
+
+新的 PSimp 和 PSimpChat 仍然只覆盖 zhTW 常用的字体文件，但扩展了字符集，支持韩国语谚文。
+
 # 有爱黑体 伪简体
 
 [有爱黑体](https://github.com/nowar-fonts/Nowar-Sans)是《魔兽世界》和《魔兽世界：经典怀旧服》字体包。该 “伪简体” 字体包按照 [Open Chinese Convert](https://github.com/BYVoid/OpenCC) 提供的 “繁—简” 转换规则，将繁体字码位映射到对应的简化字字形上。
@@ -8,9 +15,7 @@
 
 ## 下载指南
 
-[GitHub 上的最新版](https://github.com/nowar-fonts/Nowar-Sans-Pseudo-SC/releases)
-
-镜像：[Gitee 上的最新版](https://gitee.com/nowar-fonts/Nowar-Sans-Pseudo-SC/releases)
+[GitHub 上的最新版](https://github.com/nowar-fonts/Nowar-Sans-Pseudo-Simplified/releases)
 
 “有爱黑体 伪简体” 有 2 个版本，各有 4 种字重。
 
